@@ -4,6 +4,11 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find_by({ "id" => params["id"] })
+    @place = Place.find_by({ "id" => @post ["place_id"] })
+  end
+
   def new
     @post = Post.new
     @post.place_id = params["place_id"]
@@ -22,8 +27,8 @@ class PostsController < ApplicationController
     else
       flash["notice"] = "Login first."
     end
-    redirect_to "/places"
-    # redirect_to "/places/#{@post["place_id"]}"
+    redirect_to "/places/#{@post["place_id"]}"
+
   end
 
 end

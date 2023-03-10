@@ -24,11 +24,12 @@
       <%= form.file_field "uploaded_image", :accept => "image/png,image/jpg,image/jpeg,image/gif", :class => "form-control" %>
     </div>
 
-
-  <%= form.hidden_field "place_id" %>
+    <%= form.hidden_field "place_id" %>
 
     <%= form.submit "Create Post", :class => "btn btn-primary" %>
+
   <% end %>
+  
 <% else %>
   You must first <a href="/login">login</a> to post.
 <% end %>
