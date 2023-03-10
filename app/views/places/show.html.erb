@@ -6,10 +6,6 @@
   <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
 </p>
 
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
-
 <div class="row">
   <% for post in @posts %>
     <div class="col-md-3 col-sm-6">
@@ -39,3 +35,7 @@
     </div>
   <% end %>
 </div>
+
+<p>
+  <a href="/places">Back to All Places</a>
+</p>
