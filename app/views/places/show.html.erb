@@ -2,18 +2,20 @@
 
 <div class="row">
   <div class="col-sm-9">
-      <h3>My Posts</h3>
+      <h4>My Posts</h4>
   </div>
   <div class="col-sm-3 text-end">
     <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post</a>
+    <a href="/places" class="btn btn-success">Back to All Places</a>
   </div>
-</div>
-      
+</div>  
+
+
 <div class="row">
   <% for post in @posts %>
     <div class="col-lg-4 col-sm-6">
-      <h3><%= post["title"] %></h3>
-      <h4>
+      <h4><%= post["title"] %></h4>
+      <h5>
         <%# find user who created post %>
         <% user = User.find_by({ "id" => post["user_id"] }) %>
         <%# handle any potential bad data where the post is missing a user %>
@@ -22,7 +24,7 @@
         <% else %>
           anonymous
         <% end %>
-      </h4>
+      </h5>
 
       <% if post.uploaded_image.attached? %>
         <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
@@ -38,7 +40,3 @@
     </div>
   <% end %>
 </div>
-
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
