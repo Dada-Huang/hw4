@@ -14,10 +14,12 @@
 <div class="row">
 
   <% for post in @posts %>
-    <div class="col-lg-4 col-sm-6">
+    
       <% user = User.find_by({ "id" => post["user_id"] }) %>
 
          <% if user == @current_user %>
+
+         <div class="col-lg-4 col-sm-6">
 
       <h4><%= post["title"] %></h4>
       <h5>
@@ -39,11 +41,9 @@
       <h5><%= post["posted_on"] %></h5>
       <p><%= post["description"] %></p>
 
+</div>
   <% else %>
   <% end %>
-
-
-  </div>
 
   <% end %>
 
