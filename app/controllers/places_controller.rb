@@ -20,4 +20,12 @@ class PlacesController < ApplicationController
     redirect_to "/places"
   end
 
+  def destroy
+    @place = Place.find_by({ "id" => params["id"] })
+    @place.destroy
+    redirect_to "/places"
+  end
+
 end
+
+
