@@ -20,6 +20,10 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: dada_huang_hw4_production
+  username: dada_huang_hw4
+  password: <%= ENV["DADA_HUANG_HW4_DATABASE_PASSWORD"] %>
